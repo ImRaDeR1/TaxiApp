@@ -26,4 +26,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Call Taxi" />
+
+    <Button
+        android:id="@+id/lastNameButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Uladzislau Paplausky" />
 </LinearLayout>
