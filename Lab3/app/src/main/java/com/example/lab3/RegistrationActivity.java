@@ -1,4 +1,5 @@
 package com.example.lab3;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -6,7 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,7 +15,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
     private static final String TAG = "RegistrationActivity";
     private EditText phoneEditText, firstNameEditText, lastNameEditText;
-    private Button registrationButton;
+    private Button registrationButton, lastNameButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,7 @@ public class RegistrationActivity extends AppCompatActivity {
         firstNameEditText = findViewById(R.id.firstNameEditText);
         lastNameEditText = findViewById(R.id.lastNameEditText);
         registrationButton = findViewById(R.id.registrationButton);
+        lastNameButton = findViewById(R.id.lastNameButton);
 
         loadSavedData();
 
@@ -37,6 +39,13 @@ public class RegistrationActivity extends AppCompatActivity {
                 intent.putExtra("firstName", firstNameEditText.getText().toString());
                 intent.putExtra("lastName", lastNameEditText.getText().toString());
                 startActivity(intent);
+            }
+        });
+
+        lastNameButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(RegistrationActivity.this, "Сделал: Владислав Поплавский из группы АС-63", Toast.LENGTH_SHORT).show();
             }
         });
     }

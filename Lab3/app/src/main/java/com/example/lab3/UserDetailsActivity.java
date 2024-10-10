@@ -5,7 +5,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast; // Не забудьте импортировать этот класс
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,7 +13,7 @@ public class UserDetailsActivity extends AppCompatActivity {
 
     private static final String TAG = "UserDetailsActivity";
     private TextView userInfoTextView, routeTextView;
-    private Button setPathButton, callTaxiButton;
+    private Button setPathButton, callTaxiButton,lastNameButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,7 @@ public class UserDetailsActivity extends AppCompatActivity {
         routeTextView = findViewById(R.id.routeTextView);
         setPathButton = findViewById(R.id.setPathButton);
         callTaxiButton = findViewById(R.id.callTaxiButton);
+        lastNameButton = findViewById(R.id.lastNameButton);
 
         String phone = getIntent().getStringExtra("phone");
         String firstName = getIntent().getStringExtra("firstName");
@@ -36,6 +37,13 @@ public class UserDetailsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(UserDetailsActivity.this, RouteActivity.class);
                 startActivityForResult(intent, 1);
+            }
+        });
+
+        lastNameButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(UserDetailsActivity.this, "Сделал: Владислав Поплавский из группы АС-63", Toast.LENGTH_SHORT).show();
             }
         });
 

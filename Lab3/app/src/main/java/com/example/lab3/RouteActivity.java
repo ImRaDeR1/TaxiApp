@@ -4,13 +4,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class RouteActivity extends AppCompatActivity {
 
     private EditText routeEditText1, routeEditText2, routeEditText3, routeEditText4, routeEditText5, routeEditText6;
-    private Button okButton;
+    private Button okButton,lastNameButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,14 @@ public class RouteActivity extends AppCompatActivity {
         routeEditText5 = findViewById(R.id.routeEditText5);
         routeEditText6 = findViewById(R.id.routeEditText6);
         okButton = findViewById(R.id.okButton);
+        lastNameButton = findViewById(R.id.lastNameButton);
+
+        lastNameButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(RouteActivity.this, "Сделал: Владислав Поплавский из группы АС-63", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
